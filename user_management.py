@@ -33,6 +33,9 @@ class User:
             print("User already exists!")
         file.close()
 
+    def delete_user(self):
+        pass
+
     def edit_user(self, username, userid):
         userdata = self.search_user(username, userid)
         if userdata == "User doesn't exist!":
