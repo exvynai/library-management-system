@@ -1,8 +1,3 @@
-from imp import acquire_lock
-
-from jmespath import search
-
-
 class Book:
     def acquire_data(self):
         title = input("Enter the Title of the book: ")
@@ -33,5 +28,12 @@ class Book:
         else:
             print("Book already exists!")
 
+    
 
+def main():
+    b = Book()
+    b.add_book()
+
+if __name__ == '__main__':
+    main()
 
