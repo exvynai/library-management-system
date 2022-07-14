@@ -16,8 +16,6 @@ class User:
         for line in file:
             userdata = line.split(";")
             if userdata[0] == username and userdata[1] == userid:
-                # print(userdata)
-                # print(userdata[0], userdata[1])
                 return f"Username: {userdata[0]}\nUser ID: {userdata[1]}\nSchool: {userdata[2]}\nAddress: {userdata[3]}\nPhone no: {userdata[4]}\nEmail ID: {userdata[5]}\nDOB: {userdata[6]}\nAge: {userdata[7]}\n"
 
         return "User doesn't exist!"
@@ -69,18 +67,11 @@ class User:
             else:
                 return "No changes have occurred!"
         
-        print("UPDATED USER DETAILS: ")
-        print(self.search_user(username, userid))
-
+        print("UPDATED USER DETAILS!")
         
 def main():
     u = User()
-    # u.add_user()
-    # print(u.search_user("Sunny autny", "69420"))
-    # u.delete_user("Sunny autny", "69420")
-    u.edit_user("vira", "042")
-
+    u.edit_user("viraj", "042")
     
-
 if __name__ == '__main__':
     main()
