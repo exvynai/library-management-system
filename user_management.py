@@ -23,12 +23,13 @@ class User:
     def add_user(self):
         userdata = self.acquire_data()
 
-        file = open('data/users.txt', 'a+')
         if self.search_user(userdata[0], userdata[1]) == "User doesn't exist!":
+            file = open('data/users.txt', 'a+')
             file.write(userdata)
+            file.close()
         else:
             print("User already exists!")
-        file.close()
+  
 
         print("USER ADDED SUCCESSFULLY!")
 
