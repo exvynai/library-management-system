@@ -1,0 +1,3 @@
+viraj;042;cse;hennur;8919387058;vir200319@gmail.com;19/11/03;18
+testy;0421;cse;hennur;8919387058;vir200319@gmail.com;19/11/03;18
+testuser;045;ece;hennur;8919387058;vir200319@gmail.com;19/11/03;18
