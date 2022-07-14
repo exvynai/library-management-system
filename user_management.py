@@ -1,13 +1,16 @@
 class User:
-    def __init__(self, user_name, user_id, school_name, address, phone_no, email_id, dob, age):
-        self.user_name = user_name
-        self.user_id = user_id 
-        self.school_name = school_name
-        self.address =  address
-        self.phone_no = phone_no 
-        self.email_id = email_id
-        self.dob = dob 
-        self.age = age 
+    
+    def acquire_data():
+        user_name = input("Enter Username: ")
+        user_id = input("Enter User ID: ")
+        school_name = input("Enter School name: ")
+        address = input("Enter address: ")
+        phone_no = input("Enter Phone number: ")
+        email_id = input("Enter Email ID: ")
+        dob = input("Enter Date of Birth: ")
+        age = input("Enter Age: ")
+
+        return f"{user_name};{user_id};{school_name};{address};{phone_no};{email_id};{dob};{age}\n"
 
     def search_user(self, username, userid):
         file = open('data/users.txt', 'r')
@@ -21,10 +24,10 @@ class User:
         return "User doesn't exist!"
 
     def add_user(self):
-        userdata = f"{self.user_name};{self.user_id};{self.school_name};{self.address};{self.phone_no};{self.email_id};{self.dob};{self.age}\n"
+        userdata = self.acquire_data()
 
         file = open('data/users.txt', 'a+')
-        if self.search_user(self.user_name, self.user_id) == "User doesn't exist!":
+        if self.search_user(userdata[0], userdata[1]) == "User doesn't exist!":
             file.write(userdata)
         else:
             print("User already exists!")
