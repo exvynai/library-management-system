@@ -1,5 +1,5 @@
 class User:
-    
+
     def acquire_data():
         user_name = input("Enter Username: ")
         user_id = input("Enter User ID: ")
@@ -34,15 +34,19 @@ class User:
         file.close()
 
     def edit_user(self, username, userid):
-        file = open('data/users.txt', 'r')
-        for line in file:
-            userdata = line.split(";")
-            if userdata[0] == username and userdata[1] == userid:
-                #use add user function, but edited
-                #need to change the add user function
-                pass
-            
-        print("User doesn't exist!")
+        userdata = self.search_user(username, userid)
+        if userdata == "User doesn't exist!":
+            return f"{username} doesn't exist"
+        else:
+            print("USER DETAILS:")
+            print(userdata)
+
+            choice = input("Would you like to edit? (y/n): ")
+            if choice.lower() == 'y':
+                #first delete user and then add new user
+                self.add_user()
+            else:
+                return "No changes have occurred!"
 
         
 
