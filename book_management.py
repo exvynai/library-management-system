@@ -14,7 +14,7 @@ class Book:
         for line in file:
             bookinfo = line.split(";")
             if bookinfo[0] == bookname and bookinfo[1] == author:
-                return f"Title: {bookinfo[0]}\nAuthor: {bookinfo[1]}\nPublisher: {bookinfo[3]}\nYear: {bookinfo[4]}\nPrice: {bookinfo[5]}\nSchool Name: {bookinfo[6]}\n"
+                return f"Title: {bookinfo[0]}\nAuthor: {bookinfo[1]}\nPublisher: {bookinfo[2]}\nYear: {bookinfo[3]}\nPrice: {bookinfo[4]}\nSchool Name: {bookinfo[5]}\n"
 
         return "Book doesn't exist!"
 
@@ -28,11 +28,32 @@ class Book:
         else:
             print("Book already exists!")
 
-    
+    def delete_book(self, bookname, author):
+        if self.search_book(bookname, author) == "Book doesn't exist!":
+            print("The book doesn't exist!")
+        else:
+            with open("data/books.txt", 'r+') as fp:
+                lines = fp.readlines()
+                book_loc = int()
+                for line in lines:
+                    data = line.split(";")
+                    if data[0] == bookname and data[1] == author:
+                        book_loc = lines.index(line)
+                fp.seek(0)
+                # truncate the file
+                fp.truncate()
+                for number, line in enumerate(lines):
+                    if number not in [book_loc]:
+                        fp.write(line)
+
+        print("BOOK DELETED SUCCESSFULLY!")
 
 def main():
     b = Book()
-    b.add_book()
+    # b.add_book()
+    # print(b.search_book("My book", "viraj"))
+    # b.delete_book("My book", "viraj")
+
 
 if __name__ == '__main__':
     main()
